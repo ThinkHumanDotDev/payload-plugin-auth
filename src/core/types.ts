@@ -30,8 +30,11 @@ export interface ProviderInfo {
   meta?: Record<string, unknown>
 }
 
-/** A user document of the auth-enabled collection. */
-export type AuthUser = TypeWithID & { email?: string | null } & Record<string, unknown>
+/**
+ * A user document of the auth-enabled collection. Deliberately loose (`id` + `email`) so generated
+ * Payload types (interfaces without an index signature) are assignable; cast to your `User` type.
+ */
+export type AuthUser = TypeWithID & { email?: string | null }
 
 /** A document of the linked-accounts collection. */
 export interface LinkedAccount extends TypeWithID {
