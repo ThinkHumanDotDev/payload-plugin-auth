@@ -245,9 +245,11 @@ export async function resolveUser(args: ResolveUserArgs): Promise<ResolvedUser> 
   if (email) {
     const existingUser = await findUserByEmail(client, email)
     if (existingUser) {
-      if (options.linkByVerifiedEmail === false || !identity.emailVerified) {
-        throw new AuthError('email_unverified')
-      }
+      const allowed =
+        typeof options.linkByVerifiedEmail === 'function'
+          ? await options.linkByVerifiedEmail({ ...ctx, user: existingUser })
+          : options.linkByVerifiedEmail !== false && identity.emailVerified
+      if (!allowed) throw new AuthError('email_unverified')
       await options.beforeLink?.({ ...ctx, user: existingUser })
       const account = await createAccount(client, existingUser.id, identity)
       payload.logger.info(

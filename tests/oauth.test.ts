@@ -113,6 +113,9 @@ beforeAll(async () => {
     users: {
       autoProvision: () => autoProvision,
       mapNewUser: () => ({ roles: ['member'] }),
+      // Trust unverified emails on one domain, as a tenant with a verified domain would.
+      linkByVerifiedEmail: ({ identity }) =>
+        identity.emailVerified || (identity.email?.endsWith('@trusted.test') ?? false),
       findUser: async ({ payload, identity }) => {
         // Legacy column match (what a host migrating from a single `subject` column would do).
         if (!identity.providerAccountId.startsWith('legacy-')) return null
@@ -287,6 +290,18 @@ describe('OIDC login', () => {
     const refused = await loginVia('corp')
     expect(locationOf(refused.res)).toBe('/login?error=email_unverified')
     expect(sessionCookieOf(payload, refused.res)).toBeUndefined()
+
+    // The host's `linkByVerifiedEmail` function can trust an unverified email on its own terms.
+    const trusted = `trusted-${run}@trusted.test`
+    const local2 = await payload.create({
+      collection: 'users',
+      data: { email: trusted, password: 'pw-123456' },
+    })
+    issuer.setUser({ sub: 'trusted-sso', email: trusted, email_verified: false })
+    const linked = await loginVia('corp')
+    expect(String((await authenticate(payload, sessionCookieOf(payload, linked.res)))?.id)).toBe(
+      String(local2.id),
+    )
   })
 
   it('rejects a tampered state, a missing cookie and a cookie of another transaction', async () => {

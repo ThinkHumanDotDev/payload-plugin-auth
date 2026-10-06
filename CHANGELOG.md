@@ -7,6 +7,8 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
+- `linkByVerifiedEmail` accepts a function that decides per login whether an existing user with the same
+  email may be linked (tenants with verified domains).
 - `onError` receives the transaction of a failed callback (`transaction.linkUserId`, `transaction.next`) so
   hosts can send a signed-in user who was linking an account back to where they started.
 

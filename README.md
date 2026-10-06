@@ -114,7 +114,8 @@ Failures redirect to `errorRedirect` (default `/login`) with `?error=<code>`; se
 1. A linked account with the same `(provider, providerAccountId)` → that user.
 2. Otherwise a user with the same email, **only if the provider asserted the email as verified**
    (`email_verified` for OIDC, the primary verified email for GitHub, `emailVerified` on a SAML
-   connection). An unverified email never takes over an existing account (`email_unverified`).
+   connection). An unverified email never takes over an existing account (`email_unverified`), unless
+   `linkByVerifiedEmail` is a function and it says so (for example because the tenant verified the domain).
 3. Otherwise, when `autoProvision` allows it, a new user is created (`email`, `name`, a random password)
    plus whatever `mapNewUser` returns, and the account is linked.
 
@@ -125,6 +126,7 @@ oauthPlugin({
   providers,
   users: {
     autoProvision: ({ provider }) => provider.meta?.jit !== false,
+    // or a function: ({ identity, user }) => identity.emailVerified || trustedDomain(identity.email)
     linkByVerifiedEmail: true,
     mapNewUser: ({ identity }) => ({ roles: ['member'], avatarUrl: identity.picture }),
     beforeProvision: async ({ payload, identity }) => {

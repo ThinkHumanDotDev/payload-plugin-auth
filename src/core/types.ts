@@ -71,9 +71,11 @@ export interface UserResolutionOptions {
   autoProvision?: boolean | ((ctx: IdentityContext) => boolean | Promise<boolean>)
   /**
    * Attach the identity to an existing user with the same email when the provider asserts the
-   * email as verified. Default `true`. Unverified emails never take over an existing account.
+   * email as verified. Default `true`; `false` never links by email. A function decides per login
+   * (it receives the matched user) and replaces the verified-email rule, for example to also trust
+   * a domain the tenant has proven to own. Unverified emails never take over an account otherwise.
    */
-  linkByVerifiedEmail?: boolean
+  linkByVerifiedEmail?: boolean | ((ctx: UserContext) => boolean | Promise<boolean>)
   /** Refuse identities without an email. Default `true` (users collections normally require one). */
   requireEmail?: boolean
   /**
