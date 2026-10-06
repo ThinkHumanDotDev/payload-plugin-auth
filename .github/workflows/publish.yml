@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - name: Compare package.json version to the registry
@@ -67,7 +67,7 @@ jobs:
           persist-credentials: false
       - uses: pnpm/action-setup@v6
       # Trusted Publishing needs npm >= 11.5.1 (Node 22 ships npm 10.x).
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
