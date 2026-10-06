@@ -3,7 +3,7 @@
  * `@node-saml/node-saml`.
  *
  * ```ts
- * import { samlPlugin } from '@thinkhumandotdev/payload-auth/saml'
+ * import { samlPlugin } from '@thinkhuman/payload-auth/saml'
  *
  * plugins: [
  *   samlPlugin({
