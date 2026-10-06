@@ -23,7 +23,11 @@ import {
   revokeSession,
   sessionIdOf,
 } from '../core/session.js'
-import { createTransactionStore, type TransactionStore } from '../core/transaction.js'
+import {
+  createTransactionStore,
+  type Transaction,
+  type TransactionStore,
+} from '../core/transaction.js'
 import type { AuthUser, ExternalIdentity, ProviderInfo, ResolvedUser } from '../core/types.js'
 
 import { assertProvider, defaultScopes, getConfiguration, resetConfiguration } from './client.js'
@@ -156,7 +160,11 @@ export function createOAuth(options: OAuthOptions): OAuth {
   }
 
   async function fail(
-    ctx: HandlerContext & { request: Request; providerId?: string },
+    ctx: HandlerContext & {
+      request: Request
+      providerId?: string
+      transaction?: Transaction | null
+    },
     code: string,
     cookies: string[],
     error: unknown,
@@ -168,6 +176,7 @@ export function createOAuth(options: OAuthOptions): OAuth {
       code,
       error,
       providerId: ctx.providerId,
+      transaction: ctx.transaction ?? undefined,
       cookies,
     })
     if (custom) return custom
@@ -241,13 +250,23 @@ export function createOAuth(options: OAuthOptions): OAuth {
     },
 
     async callback(request, { payload, req, providerId }) {
-      const ctx = { payload, req, request, providerId }
+      const ctx: HandlerContext & {
+        request: Request
+        providerId: string
+        transaction?: Transaction
+      } = {
+        payload,
+        req,
+        request,
+        providerId,
+      }
       const store = transactions(payload, request)
       const clear = store.clear()
       const transaction = await store.read(request)
       if (!transaction || transaction.provider !== providerId) {
         return fail(ctx, 'state_mismatch', [clear], new AuthError('state_mismatch'))
       }
+      ctx.transaction = transaction
 
       const url = new URL(request.url)
       const providerError = url.searchParams.get('error')

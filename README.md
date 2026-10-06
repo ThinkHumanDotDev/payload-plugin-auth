@@ -151,22 +151,22 @@ core to build the settings UI; decide yourself whether the last sign-in method m
 
 ### `oauthPlugin(options)` / `createOAuth(options)`
 
-| Option                  | Default                                                   | Notes                                                                                         |
-| ----------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `providers`             | —                                                         | `OAuthProvider[]` or `{ get(id, ctx), list?(ctx) }` resolver                                  |
-| `usersSlug`             | `config.admin.user` or `users`                            | Auth-enabled collection                                                                       |
-| `accounts`              | `{ slug: 'auth-accounts' }`                               | Linked-accounts collection; `false` to register it yourself with `linkedAccountsCollection()` |
-| `basePath`              | `/oauth`                                                  | Endpoint prefix on the users collection; `false` to mount `handlers` yourself                 |
-| `redirectUri`           | `${serverURL}${api}/${users}${basePath}/${id}/callback`   | String or `(provider, ctx) => string`; must match what is registered at the provider          |
-| `successRedirect`       | `/`                                                       | Destination when no `next` was given                                                          |
-| `errorRedirect`         | `/login`                                                  | Gets `?error=<code>`                                                                          |
-| `postLogoutRedirectUri` | `${serverURL}/`                                           | Where RP-initiated logout returns to                                                          |
-| `cookie`                | `{ name: 'payload-auth-tx', path: '/', ttlSeconds: 600 }` | Transaction cookie; `secure` defaults to `true` on https                                      |
-| `secret`                | Payload secret                                            | Key for the transaction cookie                                                                |
-| `allowLinking`          | `true`                                                    | Whether `?link=1` is honoured                                                                 |
-| `users`                 | `{}`                                                      | Resolution hooks, see above                                                                   |
-| `onAuthenticated`       | —                                                         | `(ctx) => Response                                                                            | void` before the session is issued  |
-| `onError`               | —                                                         | `(ctx) => Response                                                                            | void` instead of the error redirect |
+| Option                  | Default                                                   | Notes                                                                                                                                                                    |
+| ----------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `providers`             | —                                                         | `OAuthProvider[]` or `{ get(id, ctx), list?(ctx) }` resolver                                                                                                             |
+| `usersSlug`             | `config.admin.user` or `users`                            | Auth-enabled collection                                                                                                                                                  |
+| `accounts`              | `{ slug: 'auth-accounts' }`                               | Linked-accounts collection; `false` to register it yourself with `linkedAccountsCollection()`                                                                            |
+| `basePath`              | `/oauth`                                                  | Endpoint prefix on the users collection; `false` to mount `handlers` yourself                                                                                            |
+| `redirectUri`           | `${serverURL}${api}/${users}${basePath}/${id}/callback`   | String or `(provider, ctx) => string`; must match what is registered at the provider                                                                                     |
+| `successRedirect`       | `/`                                                       | Destination when no `next` was given                                                                                                                                     |
+| `errorRedirect`         | `/login`                                                  | Gets `?error=<code>`                                                                                                                                                     |
+| `postLogoutRedirectUri` | `${serverURL}/`                                           | Where RP-initiated logout returns to                                                                                                                                     |
+| `cookie`                | `{ name: 'payload-auth-tx', path: '/', ttlSeconds: 600 }` | Transaction cookie; `secure` defaults to `true` on https                                                                                                                 |
+| `secret`                | Payload secret                                            | Key for the transaction cookie                                                                                                                                           |
+| `allowLinking`          | `true`                                                    | Whether `?link=1` is honoured                                                                                                                                            |
+| `users`                 | `{}`                                                      | Resolution hooks, see above                                                                                                                                              |
+| `onAuthenticated`       | —                                                         | `(ctx) => Response \| void` before the session is issued                                                                                                                 |
+| `onError`               | —                                                         | `(ctx) => Response \| void` instead of the error redirect; `ctx.transaction` is set when the cookie was readable (linking: `transaction.linkUserId`, `transaction.next`) |
 
 `createOAuth` returns `{ plugin, handlers, getProvider, listProviders, redirectUri }`. `handlers.login`,
 `callback`, `providers` and `logout` take `(request, { payload, req?, providerId })` and return a `Response`,

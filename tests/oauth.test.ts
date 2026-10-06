@@ -131,6 +131,18 @@ beforeAll(async () => {
         seen.push(`link:${identity.email}`)
       },
     },
+    onError: ({ transaction, code, cookies }) => {
+      // Linking failures go back to where the user started instead of the login page.
+      if (transaction?.linkUserId) {
+        return new Response(null, {
+          status: 303,
+          headers: {
+            location: `${transaction.next}?error=${code}`,
+            'set-cookie': cookies[0] as string,
+          },
+        })
+      }
+    },
     onAuthenticated: ({ identity, next, cookies }) => {
       if (identity.email?.startsWith('twofactor')) {
         return new Response(null, {
@@ -407,12 +419,13 @@ describe('linking and logout', () => {
     issuer.setUser({ sub: 'jane-plain', email: 'other-' + email('jane') })
     const attempt = await startLogin(
       'plain',
-      { link: '1' },
+      { link: '1', next: '/settings' },
       { cookie: larrySession, origin: SERVER_URL },
     )
     const attemptCallback = await authorizeAt(attempt.location)
+    // `onError` sees the transaction and sends the signed-in user back to the settings page.
     expect(locationOf(await callback('plain', attemptCallback, attempt.cookie))).toBe(
-      '/login?error=account_in_use',
+      '/settings?error=account_in_use',
     )
   })
 

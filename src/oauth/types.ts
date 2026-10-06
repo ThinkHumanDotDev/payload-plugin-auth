@@ -2,7 +2,7 @@ import type * as oidc from 'openid-client'
 import type { Payload, PayloadRequest } from 'payload'
 
 import type { ExternalIdentity, ProviderInfo, UserResolutionOptions } from '../core/types.js'
-import type { TransactionCookieOptions } from '../core/transaction.js'
+import type { Transaction, TransactionCookieOptions } from '../core/transaction.js'
 
 export type OAuthTokens = oidc.TokenEndpointResponse & oidc.TokenEndpointResponseHelpers
 
@@ -111,6 +111,8 @@ export interface OAuthErrorContext {
   code: string
   error: unknown
   providerId?: string
+  /** The transaction the failing callback belonged to, when its cookie could be read. */
+  transaction?: Transaction
   /** `Set-Cookie` values the response should carry. */
   cookies: string[]
 }

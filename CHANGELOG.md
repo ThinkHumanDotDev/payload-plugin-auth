@@ -7,6 +7,9 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
+- `onError` receives the transaction of a failed callback (`transaction.linkUserId`, `transaction.next`) so
+  hosts can send a signed-in user who was linking an account back to where they started.
+
 - Core: `linkedAccountsCollection`, `createSessionCookie` / `revokeSession`, `resolveUser` /
   `linkIdentity` with host hooks, `AuthError` codes, sealed transaction cookies.
 - OAuth 2.0 / OpenID Connect plugin (`./oauth`): authorization code + PKCE, discovery, ID-token and
