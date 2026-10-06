@@ -1,5 +1,5 @@
 /**
- * `@thinkhuman/payload-auth` core: what the OAuth/OIDC and SAML plugins share and what a host
+ * `@thinkhuman/payload-plugin-auth` core: what the OAuth/OIDC and SAML plugins share and what a host
  * application needs to build its own login page, account settings and custom routes.
  *
  * - `linkedAccountsCollection` — the `(provider, providerAccountId) → user` collection

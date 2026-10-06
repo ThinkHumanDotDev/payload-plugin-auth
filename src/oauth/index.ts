@@ -2,7 +2,7 @@
  * OAuth 2.0 / OpenID Connect sign-in for Payload.
  *
  * ```ts
- * import { oauthPlugin, github, google, oidc } from '@thinkhuman/payload-auth/oauth'
+ * import { oauthPlugin, github, google, oidc } from '@thinkhuman/payload-plugin-auth/oauth'
  *
  * plugins: [
  *   oauthPlugin({

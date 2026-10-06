@@ -1,5 +1,5 @@
 {
-  "name": "@thinkhuman/payload-auth",
+  "name": "@thinkhuman/payload-plugin-auth",
   "version": "0.1.0",
   "description": "Single sign-on plugins for Payload CMS 3: OAuth 2.0 / OpenID Connect and SAML 2.0 with linked accounts, provider presets and multi-tenant connection resolution.",
   "type": "module",
