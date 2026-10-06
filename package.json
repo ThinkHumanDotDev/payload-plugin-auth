@@ -1,0 +1,103 @@
+{
+  "name": "@thinkhumandotdev/payload-auth",
+  "version": "0.1.0",
+  "description": "Single sign-on plugins for Payload CMS 3: OAuth 2.0 / OpenID Connect and SAML 2.0 with linked accounts, provider presets and multi-tenant connection resolution.",
+  "type": "module",
+  "license": "MIT",
+  "author": "ThinkHuman",
+  "homepage": "https://github.com/ThinkHumanDotDev/payload-auth#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThinkHumanDotDev/payload-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThinkHumanDotDev/payload-auth/issues"
+  },
+  "keywords": [
+    "payload",
+    "payloadcms",
+    "payload-plugin",
+    "oauth",
+    "oauth2",
+    "openid-connect",
+    "oidc",
+    "saml",
+    "sso",
+    "single-sign-on",
+    "authentication"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./oauth": {
+      "types": "./dist/oauth/index.d.ts",
+      "import": "./dist/oauth/index.js",
+      "default": "./dist/oauth/index.js"
+    },
+    "./saml": {
+      "types": "./dist/saml/index.d.ts",
+      "import": "./dist/saml/index.js",
+      "default": "./dist/saml/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm format && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "prepare": "node scripts/prepare.mjs",
+    "prepublishOnly": "pnpm check && npm pack --dry-run"
+  },
+  "peerDependencies": {
+    "@node-saml/node-saml": "^5.0.0",
+    "payload": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@node-saml/node-saml": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "jose": "^6.2.12",
+    "openid-client": "^6.8.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@node-saml/node-saml": "^5.1.0",
+    "@payloadcms/db-sqlite": "3.90.2",
+    "@types/node": "^22.19.9",
+    "@xmldom/xmldom": "^0.8.15",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "payload": "3.90.2",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.1",
+    "vitest": "^4.1.11",
+    "xml-crypto": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@10.28.0"
+}

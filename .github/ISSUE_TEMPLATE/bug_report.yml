@@ -1,0 +1,36 @@
+name: Bug report
+description: Something does not work as documented
+title: 'fix: '
+labels: ['type:bug']
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, what happened instead? Include the `?error=` code if any.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Plugin configuration
+      description: The relevant `oauthPlugin` / `samlPlugin` options with secrets removed.
+      render: ts
+  - type: input
+    id: provider
+    attributes:
+      label: Identity provider
+      placeholder: Keycloak 26, Okta, Entra ID, GitHub, ...
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: payload-auth 0.1.0, payload 3.90.2, Node 22
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Server log lines with `payload-auth:` (never paste tokens or assertions).
+      render: text
