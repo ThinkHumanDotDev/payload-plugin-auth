@@ -78,14 +78,14 @@
   },
   "dependencies": {
     "jose": "^6.2.12",
-    "openid-client": "^6.8.8"
+    "openid-client": "^6.8.8",
+    "@xmldom/xmldom": "^0.8.10"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@node-saml/node-saml": "^5.1.0",
     "@payloadcms/db-sqlite": "3.90.2",
     "@types/node": "^22.19.9",
-    "@xmldom/xmldom": "^0.8.15",
     "eslint": "^9.39.0",
     "eslint-config-prettier": "^10.1.8",
     "payload": "3.90.2",
