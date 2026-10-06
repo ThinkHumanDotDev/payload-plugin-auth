@@ -22,7 +22,7 @@ concurrency:
 jobs:
   check-version:
     name: Check npm version
-    if: github.repository == 'ThinkHumanDotDev/payload-auth'
+    if: github.repository == 'ThinkHumanDotDev/payload-plugin-auth'
     runs-on: ubuntu-24.04
     outputs:
       publish: ${{ steps.npm.outputs.publish }}
@@ -54,7 +54,7 @@ jobs:
     name: Publish to npm
     needs: check-version
     if: >-
-      github.repository == 'ThinkHumanDotDev/payload-auth' &&
+      github.repository == 'ThinkHumanDotDev/payload-plugin-auth' &&
       needs.check-version.outputs.publish == 'true'
     runs-on: ubuntu-24.04
     environment: npm

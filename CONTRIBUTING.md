@@ -72,7 +72,7 @@ blocked, and admins may bypass on a pull request only. Apply it under **Settings
 New ruleset → Import a ruleset**, or with the GitHub CLI:
 
 ```sh
-gh api --method POST repos/ThinkHumanDotDev/payload-auth/rulesets --input .github/rulesets/main.json
+gh api --method POST repos/ThinkHumanDotDev/payload-plugin-auth/rulesets --input .github/rulesets/main.json
 ```
 
 Check names in the ruleset must match the job `name:` fields in `ci.yml` and `pr-title.yml`; rename them

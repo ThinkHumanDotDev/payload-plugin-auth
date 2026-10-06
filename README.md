@@ -6,8 +6,8 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@thinkhumandotdev/payload-auth"><img src="https://img.shields.io/npm/v/@thinkhumandotdev/payload-auth.svg" alt="npm version"></a>
-  <a href="https://github.com/ThinkHumanDotDev/payload-auth/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ThinkHumanDotDev/payload-auth/ci.yml?branch=main" alt="CI status"></a>
-  <a href="https://github.com/ThinkHumanDotDev/payload-auth/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
+  <a href="https://github.com/ThinkHumanDotDev/payload-plugin-auth/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ThinkHumanDotDev/payload-plugin-auth/ci.yml?branch=main" alt="CI status"></a>
+  <a href="https://github.com/ThinkHumanDotDev/payload-plugin-auth/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
 ## What you get

@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security vulnerability
-    url: https://github.com/ThinkHumanDotDev/payload-auth/security/advisories/new
+    url: https://github.com/ThinkHumanDotDev/payload-plugin-auth/security/advisories/new
     about: Report vulnerabilities privately through a security advisory, never in a public issue.
   - name: Question or discussion
-    url: https://github.com/ThinkHumanDotDev/payload-auth/discussions
+    url: https://github.com/ThinkHumanDotDev/payload-plugin-auth/discussions
     about: Ask how to wire a provider, or discuss an idea before it becomes a feature request.
