@@ -1,4 +1,4 @@
-# Contributing to @thinkhumandotdev/payload-auth
+# Contributing to @thinkhuman/payload-auth
 
 Thanks for helping! Issues and pull requests are the unit of work. The [README](README.md) documents the
 API; this page is the contributor workflow. By participating you agree to the

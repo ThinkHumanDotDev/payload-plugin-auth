@@ -1,23 +1,23 @@
-<h1 align="center">@thinkhumandotdev/payload-auth</h1>
+<h1 align="center">@thinkhuman/payload-auth</h1>
 
 <p align="center">
   Single sign-on for <a href="https://payloadcms.com">Payload CMS 3</a>: OAuth 2.0 / OpenID Connect and SAML 2.0, with linked accounts, provider presets and database-backed connections for multi-tenant apps.
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@thinkhumandotdev/payload-auth"><img src="https://img.shields.io/npm/v/@thinkhumandotdev/payload-auth.svg" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@thinkhuman/payload-auth"><img src="https://img.shields.io/npm/v/@thinkhuman/payload-auth.svg" alt="npm version"></a>
   <a href="https://github.com/ThinkHumanDotDev/payload-plugin-auth/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ThinkHumanDotDev/payload-plugin-auth/ci.yml?branch=main" alt="CI status"></a>
   <a href="https://github.com/ThinkHumanDotDev/payload-plugin-auth/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
 ## What you get
 
-- **`@thinkhumandotdev/payload-auth/oauth`** — OAuth 2.0 and OpenID Connect sign-in: authorization code flow
+- **`@thinkhuman/payload-auth/oauth`** — OAuth 2.0 and OpenID Connect sign-in: authorization code flow
   with PKCE, discovery, ID-token verification, UserInfo, RP-initiated logout. Presets for GitHub, Google,
   Microsoft Entra ID, GitLab, Discord, any OIDC issuer and any plain OAuth 2.0 server.
-- **`@thinkhumandotdev/payload-auth/saml`** — SAML 2.0 service provider: SP-initiated login (HTTP-Redirect),
+- **`@thinkhuman/payload-auth/saml`** — SAML 2.0 service provider: SP-initiated login (HTTP-Redirect),
   optional IdP-initiated login, HTTP-POST assertion consumer, SP metadata, IdP metadata parsing.
-- **`@thinkhumandotdev/payload-auth`** (core) — a `linked accounts` collection (`provider + providerAccountId →
+- **`@thinkhuman/payload-auth`** (core) — a `linked accounts` collection (`provider + providerAccountId →
 user`, many per user), Payload session issuance that is indistinguishable from a password login, identity →
   user resolution with hooks (match account → link by verified email → provision), sealed transaction cookies.
 
@@ -30,7 +30,7 @@ you can also mount them yourself (Next.js route handlers, rate limiting, custom 
 ## Install
 
 ```sh
-pnpm add @thinkhumandotdev/payload-auth
+pnpm add @thinkhuman/payload-auth
 # SAML only:
 pnpm add @node-saml/node-saml
 ```
@@ -42,8 +42,8 @@ Requires Payload `^3.0.0` and Node `>=20.9`.
 ```ts
 // payload.config.ts
 import { buildConfig } from 'payload'
-import { github, google, oauthPlugin, oidc } from '@thinkhumandotdev/payload-auth/oauth'
-import { samlPlugin } from '@thinkhumandotdev/payload-auth/saml'
+import { github, google, oauthPlugin, oidc } from '@thinkhuman/payload-auth/oauth'
+import { samlPlugin } from '@thinkhuman/payload-auth/saml'
 
 export default buildConfig({
   serverURL: 'https://app.example.com',
@@ -308,7 +308,7 @@ import {
   safeRedirectPath,
   readCookie,
   serializeCookie,
-} from '@thinkhumandotdev/payload-auth'
+} from '@thinkhuman/payload-auth'
 ```
 
 The accounts collection (`auth-accounts`) has `user`, `provider`, `providerAccountId`, `email`, `name`,
