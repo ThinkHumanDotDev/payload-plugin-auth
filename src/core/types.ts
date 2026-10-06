@@ -74,6 +74,14 @@ export interface UserResolutionOptions {
   /** Refuse identities without an email. Default `true` (users collections normally require one). */
   requireEmail?: boolean
   /**
+   * Custom lookup that runs after the linked-accounts match and before the email match: return the
+   * user the identity belongs to (an employee id, a legacy `oidcSubject` column, ...) and it is linked
+   * to that user regardless of email verification. Return nothing to continue with the defaults.
+   */
+  findUser?: (
+    ctx: IdentityContext,
+  ) => AuthUser | null | undefined | Promise<AuthUser | null | undefined>
+  /**
    * Data for a new user. Merged over the defaults (`email`, `name`, and a random password unless the
    * collection disables the local strategy). Return extra fields such as roles or a tenant.
    */

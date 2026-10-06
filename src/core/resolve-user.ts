@@ -226,6 +226,19 @@ export async function resolveUser(args: ResolveUserArgs): Promise<ResolvedUser> 
     })
   }
 
+  const found = await options.findUser?.(ctx)
+  if (found) {
+    await options.beforeLink?.({ ...ctx, user: found })
+    const account = await createAccount(client, found.id, identity)
+    payload.logger.info(
+      { user: found.id, provider: identity.provider },
+      'payload-auth: linked identity to user returned by findUser',
+    )
+    await options.afterLink?.({ ...ctx, user: found })
+    await options.afterLogin?.({ ...ctx, user: found, created: false, linked: true })
+    return { user: found, account, created: false, linked: true }
+  }
+
   const email = identity.email ? normalizeEmail(identity.email) : undefined
   if (!email && options.requireEmail !== false) throw new AuthError('email_missing')
 

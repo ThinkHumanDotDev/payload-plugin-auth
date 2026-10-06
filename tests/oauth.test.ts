@@ -113,6 +113,16 @@ beforeAll(async () => {
     users: {
       autoProvision: () => autoProvision,
       mapNewUser: () => ({ roles: ['member'] }),
+      findUser: async ({ payload, identity }) => {
+        // Legacy column match (what a host migrating from a single `subject` column would do).
+        if (!identity.providerAccountId.startsWith('legacy-')) return null
+        const { docs } = await payload.find({
+          collection: 'users',
+          where: { name: { equals: identity.providerAccountId } },
+          limit: 1,
+        })
+        return docs[0] ?? null
+      },
       beforeProvision: ({ identity }) => {
         if (refuseProvisioning) throw new AuthError('signup_disabled')
         seen.push(`provision:${identity.email}`)
@@ -320,6 +330,28 @@ describe('OIDC login', () => {
     expect(res.status).toBe(303)
     expect(locationOf(res)).toBe('/login?two_factor=1&next=%2Fx')
     expect(sessionCookieOf(payload, res)).toBeUndefined()
+  })
+})
+
+describe('findUser hook', () => {
+  it('links to the user it returns even when the email is unverified', async () => {
+    const legacy = await payload.create({
+      collection: 'users',
+      data: { email: email('legacy'), password: 'pw-123456', name: 'legacy-7' },
+    })
+    issuer.setUser({
+      sub: 'legacy-7',
+      email: 'different-' + email('legacy'),
+      email_verified: false,
+    })
+    const { res } = await loginVia('corp')
+    const user = await authenticate(payload, sessionCookieOf(payload, res))
+    expect(String(user?.id)).toBe(String(legacy.id))
+    const accounts = await listAccounts(
+      { payload, usersSlug: 'users', accountsSlug: 'auth-accounts' },
+      legacy.id,
+    )
+    expect(accounts.map((a) => a.providerAccountId)).toEqual(['legacy-7'])
   })
 })
 
