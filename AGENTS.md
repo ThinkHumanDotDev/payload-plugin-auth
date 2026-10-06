@@ -1,6 +1,6 @@
 # payload-auth — agent guide
 
-`@thinkhuman/payload-auth` is a set of single sign-on plugins for Payload CMS 3: OAuth 2.0 / OpenID
+`@thinkhuman/payload-plugin-auth` is a set of single sign-on plugins for Payload CMS 3: OAuth 2.0 / OpenID
 Connect (`./oauth`), SAML 2.0 (`./saml`) and the core they share (`.`: linked accounts, sessions, user
 resolution). Read `CONTRIBUTING.md` before changing anything; the README is the API reference.
 
