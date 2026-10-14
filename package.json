@@ -90,7 +90,7 @@
     "eslint-config-prettier": "^10.1.8",
     "payload": "3.90.2",
     "prettier": "^3.9.9",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.1",
     "vitest": "^4.1.11",
     "xml-crypto": "^6.3.3"
