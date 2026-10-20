@@ -33,15 +33,22 @@ const all = (
 export async function parseIdpMetadata(xml: string): Promise<IdpMetadata> {
   const { DOMParser } = await import('@xmldom/xmldom')
   const errors: string[] = []
-  const doc = new DOMParser({
-    errorHandler: (_level: string, message: unknown) => {
-      errors.push(String(message))
-    },
-  }).parseFromString(xml, 'text/xml') as unknown as {
+  type Doc = {
     documentElement: Elem | null
     getElementsByTagNameNS(ns: string, local: string): ArrayLike<Elem>
   }
-  if (errors.length > 0 || !doc.documentElement) {
+  let doc: Doc | undefined
+  try {
+    doc = new DOMParser({
+      onError: (_level: string, message: unknown) => {
+        errors.push(String(message))
+      },
+    }).parseFromString(xml, 'text/xml') as unknown as Doc
+  } catch {
+    // xmldom 0.9 throws a ParseError after reporting a fatal error through onError
+    if (errors.length === 0) errors.push('unparseable document')
+  }
+  if (errors.length > 0 || !doc?.documentElement) {
     throw new Error(`Invalid IdP metadata XML: ${errors[0] ?? 'no root element'}`)
   }
 

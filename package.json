@@ -77,9 +77,9 @@
     }
   },
   "dependencies": {
+    "@xmldom/xmldom": "^0.9.12",
     "jose": "^6.2.12",
-    "openid-client": "^6.8.8",
-    "@xmldom/xmldom": "^0.8.10"
+    "openid-client": "^6.8.8"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
