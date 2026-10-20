@@ -86,7 +86,7 @@
     "@node-saml/node-saml": "^5.1.0",
     "@payloadcms/db-sqlite": "3.90.2",
     "@types/node": "^26.6.5",
-    "eslint": "^9.39.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "payload": "3.90.2",
     "prettier": "^3.9.9",
