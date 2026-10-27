@@ -84,7 +84,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@node-saml/node-saml": "^5.1.0",
-    "@payloadcms/db-sqlite": "3.91.0",
+    "@payloadcms/db-sqlite": "3.92.0",
     "@types/node": "^26.6.5",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
