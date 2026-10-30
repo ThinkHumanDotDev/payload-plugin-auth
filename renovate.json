@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>ThinkHumanDotDev/renovate-config", ":semanticCommits"],
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    { "matchManagers": ["github-actions"], "matchDepTypes": ["action"], "groupName": "actions" }
+  ]
+}
