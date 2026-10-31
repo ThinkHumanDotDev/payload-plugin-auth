@@ -84,7 +84,7 @@
     "@biomejs/biome": "2.6.4",
     "@node-saml/node-saml": "^5.1.0",
     "@payloadcms/db-sqlite": "3.91.0",
-    "@thinkhuman/biome-config": "github:ThinkHumanDotDev/biome-config#v1.1.0",
+    "@thinkhuman/biome-config": "github:ThinkHumanDotDev/biome-config#v1.2.0",
     "@types/node": "^26.6.5",
     "payload": "3.91.0",
     "typescript": "^6.0.3",

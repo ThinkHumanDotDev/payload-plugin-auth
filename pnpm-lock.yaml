@@ -28,8 +28,8 @@ importers:
         specifier: 3.91.0
         version: 3.91.0(payload@3.91.0(graphql@16.14.2)(typescript@6.0.3))
       '@thinkhuman/biome-config':
-        specifier: github:ThinkHumanDotDev/biome-config#v1.1.0
-        version: https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/d9bcca771651fc7ae2936d7bc3109f5765572f1d(@biomejs/biome@2.6.4)
+        specifier: github:ThinkHumanDotDev/biome-config#v1.2.0
+        version: https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/670a900ddb6dd118c4e416d6f2178031d3b70b05(@biomejs/biome@2.6.4)
       '@types/node':
         specifier: ^26.6.5
         version: 26.6.5
@@ -761,9 +761,9 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@thinkhuman/biome-config@https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/d9bcca771651fc7ae2936d7bc3109f5765572f1d':
-    resolution: {tarball: https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/d9bcca771651fc7ae2936d7bc3109f5765572f1d}
-    version: 1.1.0
+  '@thinkhuman/biome-config@https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/670a900ddb6dd118c4e416d6f2178031d3b70b05':
+    resolution: {tarball: https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/670a900ddb6dd118c4e416d6f2178031d3b70b05}
+    version: 1.2.0
     peerDependencies:
       '@biomejs/biome': '>=2.6.4 <3'
 
@@ -2130,7 +2130,7 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@thinkhuman/biome-config@https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/d9bcca771651fc7ae2936d7bc3109f5765572f1d(@biomejs/biome@2.6.4)':
+  '@thinkhuman/biome-config@https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/670a900ddb6dd118c4e416d6f2178031d3b70b05(@biomejs/biome@2.6.4)':
     dependencies:
       '@biomejs/biome': 2.6.4
 
