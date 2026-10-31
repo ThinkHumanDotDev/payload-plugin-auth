@@ -12,17 +12,17 @@ export {
   DEFAULT_ACCOUNTS_SLUG,
   defaultUsersSlug,
   ensureLinkedAccountsCollection,
-  linkedAccountsCollection,
   type LinkedAccountsOptions,
+  linkedAccountsCollection,
 } from './core/accounts.js'
-export { expireCookie, readCookie, serializeCookie, type CookieAttributes } from './core/cookies.js'
+export { type CookieAttributes, expireCookie, readCookie, serializeCookie } from './core/cookies.js'
 export {
   AUTH_ERROR_CODES,
   AuthError,
+  type AuthErrorOptions,
   authErrorMessage,
   isAuthError,
   isAuthErrorCode,
-  type AuthErrorOptions,
   type KnownAuthErrorCode,
 } from './core/errors.js'
 export {
@@ -36,31 +36,31 @@ export {
   wantsJson,
 } from './core/http.js'
 export {
+  type AccountsClient,
   createAccount,
   findAccount,
   findUserByEmail,
   findUserById,
+  type LinkIdentityArgs,
   linkIdentity,
   listAccounts,
   looksLikeEmail,
   normalizeEmail,
+  type ResolveUserArgs,
   randomPassword,
   resolveUser,
   touchAccount,
   unlinkAccount,
-  type AccountsClient,
-  type LinkIdentityArgs,
-  type ResolveUserArgs,
 } from './core/resolve-user.js'
-export { deriveKey, open as openSealed, seal, type SealOptions } from './core/sealed.js'
+export { deriveKey, open as openSealed, type SealOptions, seal } from './core/sealed.js'
 export {
+  type CreateSessionArgs,
   createSessionCookie,
   expiredSessionCookie,
-  revokeSession,
-  sessionIdOf,
-  type CreateSessionArgs,
   type RevokeSessionArgs,
+  revokeSession,
   type SessionCookie,
+  sessionIdOf,
 } from './core/session.js'
 export {
   createTransactionStore,

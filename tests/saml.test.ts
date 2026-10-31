@@ -5,8 +5,8 @@ import { listAccounts } from '../src/index.js'
 import {
   createSaml,
   parseIdpMetadata,
-  samlProfile,
   type SamlConnection,
+  samlProfile,
 } from '../src/saml/index.js'
 import {
   authenticate,

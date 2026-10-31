@@ -36,7 +36,7 @@ export const isAuthErrorCode = (value: unknown): value is string =>
 
 /** Message for a known code, `undefined` for unknown input (never reflect it). */
 export const authErrorMessage = (code: unknown): string | undefined =>
-  isAuthErrorCode(code) && Object.prototype.hasOwnProperty.call(AUTH_ERROR_CODES, code)
+  isAuthErrorCode(code) && Object.hasOwn(AUTH_ERROR_CODES, code)
     ? AUTH_ERROR_CODES[code as KnownAuthErrorCode]
     : undefined
 

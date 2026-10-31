@@ -2,7 +2,7 @@ import { mkdirSync, rmSync } from 'node:fs'
 import path from 'node:path'
 
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
-import { buildConfig, getPayload, type CollectionConfig, type Payload, type Plugin } from 'payload'
+import { buildConfig, type CollectionConfig, getPayload, type Payload, type Plugin } from 'payload'
 
 /**
  * Boots a real Payload on a throwaway SQLite database with a minimal `users` collection and the

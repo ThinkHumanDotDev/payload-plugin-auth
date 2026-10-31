@@ -1,8 +1,7 @@
 import type * as oidc from 'openid-client'
 import type { Payload, PayloadRequest } from 'payload'
-
-import type { ExternalIdentity, ProviderInfo, UserResolutionOptions } from '../core/types.js'
 import type { Transaction, TransactionCookieOptions } from '../core/transaction.js'
+import type { ExternalIdentity, ProviderInfo, UserResolutionOptions } from '../core/types.js'
 
 export type OAuthTokens = oidc.TokenEndpointResponse & oidc.TokenEndpointResponseHelpers
 

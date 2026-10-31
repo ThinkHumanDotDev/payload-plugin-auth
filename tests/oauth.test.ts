@@ -2,8 +2,8 @@ import type { Payload } from 'payload'
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import { AuthError, listAccounts } from '../src/index.js'
-import { createOAuth, oauth2, oidc, type OAuthProvider } from '../src/oauth/index.js'
-import { startMockIssuer, type MockIssuer } from './helpers/mock-issuer.js'
+import { createOAuth, type OAuthProvider, oauth2, oidc } from '../src/oauth/index.js'
+import { type MockIssuer, startMockIssuer } from './helpers/mock-issuer.js'
 import {
   authenticate,
   authorizeAt,

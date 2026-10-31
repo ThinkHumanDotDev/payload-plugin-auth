@@ -1,0 +1,19 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
+  "extends": ["@thinkhuman/biome-config/biome"],
+  "linter": {
+    "rules": {
+      "style": {
+        // 7 hits, all in tests reading back a value they just asserted on. The ESLint setup
+        // (typescript-eslint recommended) never enforced it.
+        "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        // 4 hits: onAuthenticated and onError in src/oauth/types.ts and src/saml/types.ts return
+        // `Promise<Response | void> | Response | void` on purpose, so a hook that returns nothing
+        // type-checks. Swapping void for undefined would change the public types.
+        "noConfusingVoidType": "off"
+      }
+    }
+  }
+}

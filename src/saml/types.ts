@@ -1,7 +1,6 @@
 import type { Payload, PayloadRequest } from 'payload'
-
-import type { ExternalIdentity, ProviderInfo, UserResolutionOptions } from '../core/types.js'
 import type { Transaction, TransactionCookieOptions } from '../core/transaction.js'
+import type { ExternalIdentity, ProviderInfo, UserResolutionOptions } from '../core/types.js'
 
 /** The SAML subject and attributes as `@node-saml/node-saml` returns them. */
 export type SamlProfile = {

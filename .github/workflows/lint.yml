@@ -1,0 +1,17 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  biome:
+    uses: ThinkHumanDotDev/.github/.github/workflows/biome.yml@b70121e37fd4e23046d4a5d66b3fc921b12d1156

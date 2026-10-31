@@ -23,7 +23,7 @@ export function safeRedirectPath(value: unknown, fallback = '/'): string {
   if (typeof value !== 'string') return fallback
   const path = value.trim()
   if (!path.startsWith('/') || path.startsWith('//') || path.startsWith('/\\')) return fallback
-  // eslint-disable-next-line no-control-regex -- control characters must never reach a Location header
+  // biome-ignore lint/suspicious/noControlCharactersInRegex: control characters must never reach a Location header
   if (/[\u0000-\u001f\u007f]/.test(path)) return fallback
   return path
 }
