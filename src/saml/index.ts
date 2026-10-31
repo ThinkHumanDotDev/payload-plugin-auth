@@ -14,17 +14,17 @@
  * ]
  * ```
  */
-export { parseIdpMetadata, type IdpMetadata } from './metadata.js'
+export { type IdpMetadata, parseIdpMetadata } from './metadata.js'
 export { DEFAULT_SAML_ATTRIBUTES, pickAttribute, samlProfile } from './profile.js'
 export {
   assertConnection,
   CONNECTION_ID_PATTERN,
   connectionInfo,
   createSaml,
-  samlPlugin,
   type Saml,
   type SamlHandlerContext,
   type SamlHandlers,
+  samlPlugin,
 } from './saml.js'
 export type {
   AssertionReplayCheck,

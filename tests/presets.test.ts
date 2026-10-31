@@ -6,9 +6,9 @@ import {
   gitlab,
   google,
   microsoft,
+  type OAuthProvider,
   oidc,
   oidcProfile,
-  type OAuthProvider,
   type ProfileContext,
 } from '../src/oauth/index.js'
 

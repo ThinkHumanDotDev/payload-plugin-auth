@@ -1,7 +1,7 @@
 name: Feature request
 description: Propose a feature, a provider preset or an improvement
-title: 'feat: '
-labels: ['type:feat']
+title: "feat: "
+labels: ["type:feat"]
 body:
   - type: textarea
     id: problem

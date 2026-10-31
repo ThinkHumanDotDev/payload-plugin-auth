@@ -1,4 +1,4 @@
-import { expireCookie, readCookie, serializeCookie, type CookieAttributes } from './cookies.js'
+import { type CookieAttributes, expireCookie, readCookie, serializeCookie } from './cookies.js'
 import { open, seal } from './sealed.js'
 
 /**

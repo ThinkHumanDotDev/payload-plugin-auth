@@ -2,7 +2,7 @@ import crypto from 'node:crypto'
 import http from 'node:http'
 import type { AddressInfo } from 'node:net'
 
-import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
+import { exportJWK, generateKeyPair, type JWK, SignJWT } from 'jose'
 
 /**
  * Minimal in-process OpenID Connect provider for tests: discovery document, JWKS, `/authorize`

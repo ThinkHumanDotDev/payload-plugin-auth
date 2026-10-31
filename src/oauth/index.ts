@@ -18,11 +18,11 @@
 export { getConfiguration, resetConfiguration } from './client.js'
 export {
   createOAuth,
-  oauthPlugin,
-  providerInfo,
   type HandlerContext,
   type OAuth,
   type OAuthHandlers,
+  oauthPlugin,
+  providerInfo,
 } from './oauth.js'
 export {
   discord,

@@ -42,7 +42,8 @@ external services are needed.
 
 ## Code conventions
 
-- TypeScript strict, ESM only, Node ≥ 20.9. Prettier formats, ESLint lints.
+- TypeScript strict, ESM only, Node ≥ 20.9. Biome formats and lints (`pnpm lint`, `pnpm lint:fix` for the
+  safe fixes); `biome.jsonc` extends the org's shared `@thinkhuman/biome-config`.
 - Three entry points, kept independent: `.` (core), `./oauth`, `./saml`. The SAML entry point must keep
   working when `@node-saml/node-saml` is not installed until a handler runs (lazy import).
 - Follow the specifications, not a particular provider: RFC 6749/7636 (OAuth 2.0, PKCE), OpenID Connect

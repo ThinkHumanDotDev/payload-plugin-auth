@@ -7,6 +7,7 @@ resolution). Read `CONTRIBUTING.md` before changing anything; the README is the 
 ## Commands
 
 - `pnpm check` – format, lint, typecheck, tests and build (run before every push)
+- `pnpm lint` – Biome: format, lint and import order; `pnpm lint:fix` applies the safe fixes
 - `pnpm test` – Vitest; suites boot Payload on SQLite with in-process mock identity providers
 - `pnpm build` – `tsc` to `dist/` (ESM + declarations)
 

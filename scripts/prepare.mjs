@@ -2,10 +2,11 @@
 // git URL or a GitHub tarball (package managers build such dependencies). It compiles `dist/` so a
 // git install works like a registry install; a registry tarball already contains `dist/` and never
 // runs this script.
-import { existsSync } from 'node:fs'
+
 import { spawnSync } from 'node:child_process'
-import { fileURLToPath } from 'node:url'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const tsc = path.join(root, 'node_modules', 'typescript', 'bin', 'tsc')

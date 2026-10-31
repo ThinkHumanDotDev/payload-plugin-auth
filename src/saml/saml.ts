@@ -95,7 +95,7 @@ const serverUrlOf = (payload: Payload, request: Request): string =>
 /** A SAML request id must be an XML NCName: start with a letter or underscore. */
 const newRequestId = () => `_${crypto.randomBytes(16).toString('hex')}`
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports -- the module is an optional peer loaded lazily
+// Type only: the module is an optional peer, loaded lazily.
 type NodeSaml = typeof import('@node-saml/node-saml')
 
 let nodeSaml: Promise<NodeSaml> | undefined

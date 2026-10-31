@@ -20,7 +20,7 @@ export const ROGUE_CERT = readFileSync(path.join(fixtures, 'sp-cert.pem'), 'utf8
 export const IDP_ENTITY_ID = 'https://idp.example.test/saml'
 export const IDP_SSO_URL = 'https://idp.example.test/saml/sso'
 
-const escape = (value: string) =>
+const escapeXml = (value: string) =>
   value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
 export interface ResponseOptions {
@@ -55,23 +55,27 @@ export function buildSamlResponse(options: ResponseOptions): { xml: string; asse
   const notBefore = new Date(now + (options.notBeforeMs ?? -60_000)).toISOString()
   const notOnOrAfter = new Date(now + (options.expiresInMs ?? 5 * 60_000)).toISOString()
   const format = options.nameIdFormat ?? 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
-  const inResponseTo = options.inResponseTo ? ` InResponseTo="${escape(options.inResponseTo)}"` : ''
+  const inResponseTo = options.inResponseTo
+    ? ` InResponseTo="${escapeXml(options.inResponseTo)}"`
+    : ''
 
   const attributes = Object.entries(options.attributes ?? {})
     .map(([name, value]) => {
       const values = (Array.isArray(value) ? value : [value])
-        .map((v) => `<saml:AttributeValue xsi:type="xs:string">${escape(v)}</saml:AttributeValue>`)
+        .map(
+          (v) => `<saml:AttributeValue xsi:type="xs:string">${escapeXml(v)}</saml:AttributeValue>`,
+        )
         .join('')
-      return `<saml:Attribute Name="${escape(name)}" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">${values}</saml:Attribute>`
+      return `<saml:Attribute Name="${escapeXml(name)}" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">${values}</saml:Attribute>`
     })
     .join('')
 
   const assertion =
     `<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" ID="${assertionId}" Version="2.0" IssueInstant="${issueInstant}">` +
-    `<saml:Issuer>${escape(issuer)}</saml:Issuer>` +
-    `<saml:Subject><saml:NameID Format="${format}">${escape(options.nameId)}</saml:NameID>` +
-    `<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData NotOnOrAfter="${notOnOrAfter}" Recipient="${escape(options.destination)}"${inResponseTo}/></saml:SubjectConfirmation></saml:Subject>` +
-    `<saml:Conditions NotBefore="${notBefore}" NotOnOrAfter="${notOnOrAfter}"><saml:AudienceRestriction><saml:Audience>${escape(options.audience)}</saml:Audience></saml:AudienceRestriction></saml:Conditions>` +
+    `<saml:Issuer>${escapeXml(issuer)}</saml:Issuer>` +
+    `<saml:Subject><saml:NameID Format="${format}">${escapeXml(options.nameId)}</saml:NameID>` +
+    `<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData NotOnOrAfter="${notOnOrAfter}" Recipient="${escapeXml(options.destination)}"${inResponseTo}/></saml:SubjectConfirmation></saml:Subject>` +
+    `<saml:Conditions NotBefore="${notBefore}" NotOnOrAfter="${notOnOrAfter}"><saml:AudienceRestriction><saml:Audience>${escapeXml(options.audience)}</saml:Audience></saml:AudienceRestriction></saml:Conditions>` +
     `<saml:AuthnStatement AuthnInstant="${issueInstant}" SessionIndex="${responseId}"><saml:AuthnContext><saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef></saml:AuthnContext></saml:AuthnStatement>` +
     (attributes ? `<saml:AttributeStatement>${attributes}</saml:AttributeStatement>` : '') +
     `</saml:Assertion>`
@@ -108,8 +112,8 @@ export function buildSamlResponse(options: ResponseOptions): { xml: string; asse
   }
 
   let response =
-    `<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="${responseId}" Version="2.0" IssueInstant="${issueInstant}" Destination="${escape(options.destination)}"${inResponseTo}>` +
-    `<saml:Issuer>${escape(issuer)}</saml:Issuer>` +
+    `<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="${responseId}" Version="2.0" IssueInstant="${issueInstant}" Destination="${escapeXml(options.destination)}"${inResponseTo}>` +
+    `<saml:Issuer>${escapeXml(issuer)}</saml:Issuer>` +
     `<samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/></samlp:Status>` +
     signedAssertion +
     `</samlp:Response>`
