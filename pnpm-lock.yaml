@@ -12,8 +12,8 @@ importers:
         specifier: ^0.9.12
         version: 0.9.12
       jose:
-        specifier: ^6.2.12
-        version: 6.2.12
+        specifier: ^6.2.14
+        version: 6.2.14
       openid-client:
         specifier: ^6.8.8
         version: 6.8.8
@@ -25,8 +25,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@payloadcms/db-sqlite':
-        specifier: 3.91.0
-        version: 3.91.0(payload@3.91.0(graphql@16.14.2)(typescript@6.0.3))
+        specifier: 3.92.0
+        version: 3.92.0(payload@3.92.0(graphql@16.14.2)(typescript@6.0.3))
       '@thinkhuman/biome-config':
         specifier: github:ThinkHumanDotDev/biome-config#v1.2.0
         version: https://codeload.github.com/ThinkHumanDotDev/biome-config/tar.gz/670a900ddb6dd118c4e416d6f2178031d3b70b05(@biomejs/biome@2.6.4)
@@ -34,8 +34,8 @@ importers:
         specifier: ^26.6.5
         version: 26.6.5
       payload:
-        specifier: 3.91.0
-        version: 3.91.0(graphql@16.14.2)(typescript@6.0.3)
+        specifier: 3.92.0
+        version: 3.92.0(graphql@16.14.2)(typescript@6.0.3)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -652,18 +652,18 @@ packages:
   '@oxc-project/types@0.154.0':
     resolution: {integrity: sha512-KYOUGQFlLWR+s4QMV2Q9ko38TZm7EdO87Qm7rvZLqk/webse/cDjtyxKhg/47l0byCbs/k46LT8qc4PKjAikzA==}
 
-  '@payloadcms/db-sqlite@3.91.0':
-    resolution: {integrity: sha512-qdcBY5BHn76IfBdkeGq25EPWHCwHVryKFB6d7uMGD2pN2coAja3WDvlnG+2lPZc/ZKWnS3Jzv6JTl5D2Rmomqw==}
+  '@payloadcms/db-sqlite@3.92.0':
+    resolution: {integrity: sha512-IUGelzTEsDklws9maYyxAl/6poOqYXjRlxeZIxfih5npe4B8/t8YBZxgPbjPHwP3QnVqozTFYzM4JARffLlKLg==}
     peerDependencies:
-      payload: 3.91.0
+      payload: 3.92.0
 
-  '@payloadcms/drizzle@3.91.0':
-    resolution: {integrity: sha512-qkY+UKgi+Ku1FZw9G5jEaRhXB9+iS7ic7cY0LM+42GtKXln3wp/vyAXLuIPwutTGQ0WZYpcKkuvRkN7L/yojKg==}
+  '@payloadcms/drizzle@3.92.0':
+    resolution: {integrity: sha512-DlrFGWRWE23djI/fSbxwHVMQ0283nNYFMGWT5iJRW+y1im3Spw+PBC1yRMFDZoijnVdp/UbdQHyFWWomUuTj0Q==}
     peerDependencies:
-      payload: 3.91.0
+      payload: 3.92.0
 
-  '@payloadcms/translations@3.91.0':
-    resolution: {integrity: sha512-QZzE2c+VJyP7VuuPQD7DeDOWrU6Gsgd+TxTLRb1v+kTqvUIfxRWy5yW90YkA1qDQrI0CRkASRx/YFbgaAAEWRQ==}
+  '@payloadcms/translations@3.92.0':
+    resolution: {integrity: sha512-2LIPROVlaEyuCAMwjmwi1JQj/k0ggS/AE3G/XECAxgB7afKBksj5VZMvnonGa0jI64akhOpxu7bXMEWLyLr/vw==}
 
   '@pinojs/redact@0.4.0':
     resolution: {integrity: sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==}
@@ -1129,8 +1129,8 @@ packages:
   jose@5.10.0:
     resolution: {integrity: sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==}
 
-  jose@6.2.12:
-    resolution: {integrity: sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==}
+  jose@6.2.14:
+    resolution: {integrity: sha512-3JasLuki1NRLQvY4wCoC37KZk4qxoBx2k2aFqLxT84IezqW0bkJKnNtxnZj/Fu1xsQivoc/lytxaRHJoGLjJ1A==}
 
   joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
@@ -1276,9 +1276,9 @@ packages:
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
-  payload@3.91.0:
-    resolution: {integrity: sha512-EF+PXc8iSuo561f82SnAY5YB8Ix6LDN4Xe4ndef0iLDNPkdEykq1vc1mgo82/HsZ4ljSv9u/wP6iP5hyIpM+wA==}
-    engines: {node: '>=20.18.1'}
+  payload@3.92.0:
+    resolution: {integrity: sha512-WjxT2TnsQ2kq0d8mhoOu0Rj0O/h5m5e9amsA0iwlqI70rUVrY7opCAPehIz6FyG3d+ZZGX6gmEnOeenm4NCeNA==}
+    engines: {node: ^22.23.4 || >=24.22.1}
     hasBin: true
     peerDependencies:
       graphql: ^16.8.1
@@ -1466,8 +1466,8 @@ packages:
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
-  undici@7.29.1:
-    resolution: {integrity: sha512-RYONW2MeafgYlkVOKYKkA/Ag7BmXqgIWCa8t1m0JcxrQg9pI9lEqRhAOruOBCbAohOa/gkCF+iPi9hrgvTzu6Q==}
+  undici@7.30.1:
+    resolution: {integrity: sha512-03KrMbjIFDWQR5RNPrSw3bd1r12JpyFQl9/yxjUbJtqkjmllqC5lFjZh6ujeuJCKr8EOQvRW872Oy/az+nLYxg==}
     engines: {node: '>=20.18.1'}
 
   utf8-byte-length@1.0.5:
@@ -1993,14 +1993,14 @@ snapshots:
 
   '@oxc-project/types@0.154.0': {}
 
-  '@payloadcms/db-sqlite@3.91.0(payload@3.91.0(graphql@16.14.2)(typescript@6.0.3))':
+  '@payloadcms/db-sqlite@3.92.0(payload@3.92.0(graphql@16.14.2)(typescript@6.0.3))':
     dependencies:
       '@libsql/client': 0.14.0
-      '@payloadcms/drizzle': 3.91.0(@libsql/client@0.14.0)(payload@3.91.0(graphql@16.14.2)(typescript@6.0.3))
+      '@payloadcms/drizzle': 3.92.0(@libsql/client@0.14.0)(payload@3.92.0(graphql@16.14.2)(typescript@6.0.3))
       console-table-printer: 2.12.1
       drizzle-kit: 0.31.7
       drizzle-orm: 0.45.2(@libsql/client@0.14.0)
-      payload: 3.91.0(graphql@16.14.2)(typescript@6.0.3)
+      payload: 3.92.0(graphql@16.14.2)(typescript@6.0.3)
       prompts: 2.4.2
       to-snake-case: 1.0.0
       uuid: 13.0.2
@@ -2037,12 +2037,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@payloadcms/drizzle@3.91.0(@libsql/client@0.14.0)(payload@3.91.0(graphql@16.14.2)(typescript@6.0.3))':
+  '@payloadcms/drizzle@3.92.0(@libsql/client@0.14.0)(payload@3.92.0(graphql@16.14.2)(typescript@6.0.3))':
     dependencies:
       console-table-printer: 2.12.1
       dequal: 2.0.3
       drizzle-orm: 0.45.2(@libsql/client@0.14.0)
-      payload: 3.91.0(graphql@16.14.2)(typescript@6.0.3)
+      payload: 3.92.0(graphql@16.14.2)(typescript@6.0.3)
       prompts: 2.4.2
       to-snake-case: 1.0.0
       uuid: 13.0.2
@@ -2077,7 +2077,7 @@ snapshots:
       - sql.js
       - sqlite3
 
-  '@payloadcms/translations@3.91.0':
+  '@payloadcms/translations@3.92.0':
     dependencies:
       date-fns: 4.1.0
 
@@ -2432,7 +2432,7 @@ snapshots:
 
   jose@5.10.0: {}
 
-  jose@6.2.12: {}
+  jose@6.2.14: {}
 
   joycon@3.1.1: {}
 
@@ -2552,15 +2552,15 @@ snapshots:
 
   openid-client@6.8.8:
     dependencies:
-      jose: 6.2.12
+      jose: 6.2.14
       oauth4webapi: 3.8.8
 
   path-to-regexp@6.3.0: {}
 
-  payload@3.91.0(graphql@16.14.2)(typescript@6.0.3):
+  payload@3.92.0(graphql@16.14.2)(typescript@6.0.3):
     dependencies:
       '@next/env': 15.5.28
-      '@payloadcms/translations': 3.91.0
+      '@payloadcms/translations': 3.92.0
       '@types/busboy': 1.5.4
       ajv: 8.18.0
       bson-objectid: 2.0.4
@@ -2589,7 +2589,7 @@ snapshots:
       sax: 1.6.1
       ts-essentials: 10.0.3(typescript@6.0.3)
       tsx: 4.23.15
-      undici: 7.29.1
+      undici: 7.30.1
       uuid: 13.0.2
       ws: 8.22.0
     transitivePeerDependencies:
@@ -2783,7 +2783,7 @@ snapshots:
 
   undici-types@8.9.0: {}
 
-  undici@7.29.1: {}
+  undici@7.30.1: {}
 
   utf8-byte-length@1.0.5: {}
 

@@ -77,16 +77,16 @@
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.9.12",
-    "jose": "^6.2.12",
+    "jose": "^6.2.14",
     "openid-client": "^6.8.8"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
     "@node-saml/node-saml": "^5.1.0",
-    "@payloadcms/db-sqlite": "3.91.0",
+    "@payloadcms/db-sqlite": "3.92.0",
     "@thinkhuman/biome-config": "github:ThinkHumanDotDev/biome-config#v1.2.0",
     "@types/node": "^26.6.5",
-    "payload": "3.91.0",
+    "payload": "3.92.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5",
     "xml-crypto": "^6.3.3"
