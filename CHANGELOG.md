@@ -3,6 +3,13 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org).
 
+## [Unreleased]
+
+### Changed
+
+- **Breaking:** requires Node `^22.23.4 || >=24.22.1`, matching Payload 3.92. Node 20 reached end of life in April 2026
+  and Payload no longer supports it.
+
 ## [0.1.0] - 2026-10-06
 
 ### Added

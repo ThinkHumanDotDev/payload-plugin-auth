@@ -35,7 +35,7 @@ pnpm add @thinkhuman/payload-plugin-auth
 pnpm add @node-saml/node-saml
 ```
 
-Requires Payload `^3.0.0` and Node `>=20.9`.
+Requires Payload `^3.0.0` and Node `^22.23.4 || >=24.22.1`, the range Payload 3.92 supports.
 
 ## Quick start
 

@@ -24,7 +24,7 @@ pnpm install
 pnpm check
 ```
 
-Use pnpm (version in `package.json` → `packageManager`) and Node 22, the versions CI runs. Tests boot a
+Use pnpm (version in `package.json` → `packageManager`) and Node 22 or 24, the versions CI runs. Tests boot a
 real Payload on SQLite (`tests/.data/`, ignored) and talk to in-process mock identity providers; no
 external services are needed.
 
@@ -42,7 +42,7 @@ external services are needed.
 
 ## Code conventions
 
-- TypeScript strict, ESM only, Node ≥ 20.9. Biome formats and lints (`pnpm lint`, `pnpm lint:fix` for the
+- TypeScript strict, ESM only, Node `^22.23.4 || >=24.22.1` (Payload's range). Biome formats and lints (`pnpm lint`, `pnpm lint:fix` for the
   safe fixes); `biome.jsonc` extends the org's shared `@thinkhuman/biome-config`.
 - Three entry points, kept independent: `.` (core), `./oauth`, `./saml`. The SAML entry point must keep
   working when `@node-saml/node-saml` is not installed until a handler runs (lazy import).
@@ -67,7 +67,7 @@ creates the GitHub release.
 ## Branch protection (maintainers)
 
 `main` is protected by the repository ruleset in [`.github/rulesets/main.json`](.github/rulesets/main.json):
-changes land through squash-merged pull requests with linear history, the `check` and
+changes land through squash-merged pull requests with linear history, the `check (22)`, `check (24)` and
 `Conventional PR title` checks must pass, review threads must be resolved, force pushes and deletion are
 blocked, and admins may bypass on a pull request only. Apply it under **Settings → Rules → Rulesets →
 New ruleset → Import a ruleset**, or with the GitHub CLI:
