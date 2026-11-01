@@ -3,12 +3,17 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow [SemVer](https://semver.org).
 
-## [Unreleased]
+## [0.2.0] - 2026-11-01
 
 ### Changed
 
 - **Breaking:** requires Node `^22.23.4 || >=24.22.1`, matching Payload 3.92. Node 20 reached end of life in April 2026
   and Payload no longer supports it.
+
+### Fixed
+
+- SAML: IdP metadata parses with `@xmldom/xmldom` 0.9, which reports fatal errors by throwing; malformed metadata is
+  rejected as invalid instead of failing unexpectedly (#11).
 
 ## [0.1.0] - 2026-10-06
 
