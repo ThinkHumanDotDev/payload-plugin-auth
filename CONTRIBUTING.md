@@ -24,7 +24,7 @@ pnpm install
 pnpm check
 ```
 
-Use pnpm (version in `package.json` → `packageManager`) and Node 22, the versions CI runs. Tests boot a
+Use pnpm (version in `package.json` → `packageManager`) and Node 22 or 24, the versions CI runs. Tests boot a
 real Payload on SQLite (`tests/.data/`, ignored) and talk to in-process mock identity providers; no
 external services are needed.
 
@@ -67,7 +67,7 @@ creates the GitHub release.
 ## Branch protection (maintainers)
 
 `main` is protected by the repository ruleset in [`.github/rulesets/main.json`](.github/rulesets/main.json):
-changes land through squash-merged pull requests with linear history, the `check` and
+changes land through squash-merged pull requests with linear history, the `check (22)`, `check (24)` and
 `Conventional PR title` checks must pass, review threads must be resolved, force pushes and deletion are
 blocked, and admins may bypass on a pull request only. Apply it under **Settings → Rules → Rulesets →
 New ruleset → Import a ruleset**, or with the GitHub CLI:
